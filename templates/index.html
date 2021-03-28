@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+    *{
+      box-sizing: border-box;
+    }
+
+        h1{
+          text-align: center;
+          color: #069c7e;
+        }
+        .display-8 {
+            font-weight: 300;
+            font-size: 35px;
+        }
+
+        .color1 {
+            background-color: #2475B0;
+            color: white;
+        }
+
+        .color2 {
+            background-color: #FF3E4D;
+            color: white;
+        }
+
+        .color3 {
+            background-color: #B83227;
+            color: white;
+        }
+
+        .color4 {
+            background-color: #2ecc72;
+            color: white;
+        }
+
+        .color5 {
+            background-color: #26ae60;
+            color: white;
+        }
+    </style>
+
+    <style>
+        .display-8 {
+            font-weight: 300;
+            font-size: 35px;
+        }
+
+        .display-7 {
+            font-weight: 400;
+            font-size: 45px;
+        }
+
+        .color1 {
+            background-color: #2475B0;
+            color: white;
+        }
+
+        .color2 {
+            background-color: #FF3E4D;
+            color: white;
+        }
+
+        .color3 {
+            background-color: #B83227;
+            color: white;
+        }
+
+        .color4 {
+            background-color: #2ecc72;
+            color: white;
+        }
+
+        .color5 {
+            background-color: #26ae60;
+            color: white;
+        }
+
+        .number {
+            font-weight: 400;
+            font-size: 30px;
+        }
+        .th1{
+          color: #0245b0;
+        }
+        .th2{
+          color: #069c7e;
+        }
+        .th3{
+          color: #db1212;
+        }
+        .th4{
+          color: #db1212;
+        }
+        .th5{
+          color: #06cc73;
+        }
+         .th6{
+          color: #db1212;
+        }
+        .th7{
+          color: #db1212;
+        }
+        .th8{
+          color: #06cc73;
+        }
+
+
+        /* td style here*/
+        .table td, .table th {
+          padding: .75rem;
+          vertical-align: top;
+          border-top: 1px solid #dee2e6;
+          font-weight: 600;
+        }
+
+        .td1{
+          color: #0245b0;
+          
+        }
+        .td2{
+          color: #0b8a51;
+        }
+        .td3{
+          color: #db1212;
+        }
+        .td4{
+          color: #db1212;
+        }
+        .td5{
+          color: #098f53;
+        }
+         .td6{
+          color: #db1212;
+        }
+        .td7{
+          color: #db1212;
+        }
+        .td8{
+          color: #098f53;
+        }
+
+    </style>
+  </head>
+
+
+  <body class="p-3">
+    <h1 class="display-7">List of all country covid-19 data here </h1>
+  
+    <br>
+    <h1 class="display-7">Covid 19 - Global Data </h1>
+    <hr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card col m-2 color1">
+                <div class="card-body">
+                    <h4 class="card-title">New Confirmed</h4>
+                    <p class="card-text number">{{globalSummary.NewConfirmed}}</p>
+                </div>
+            </div>
+            <div class="card col m-2 color2">
+                <div class="card-body">
+                    <h4 class="card-title">New Deaths</h4>
+                    <p class="card-text number">{{globalSummary.NewDeaths}}</p>
+                </div>
+            </div>
+            <div class="card col m-2 color3">
+                <div class="card-body">
+                    <h4 class="card-title">Total Deaths</h4>
+                    <p class="card-text number">{{globalSummary.TotalDeaths}}</p>
+                </div>
+            </div>
+            <div class="card col m-2 color4">
+                <div class="card-body">
+                    <h4 class="card-title">New Recovered</h4>
+                    <p class="card-text number">{{globalSummary.NewRecovered}}</p>
+                </div>
+            </div>
+            <div class="card col m-2 color5">
+                <div class="card-body">
+                    <h4 class="card-title">Total Recovered</h4>
+                    <p class="card-text number">{{globalSummary.TotalRecovered}}</p>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+
+        <h4 class="border rounded p-3">
+            <div class="display-8">
+                Country Wise Summary
+            </div>
+        </h4>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class='th1'>Count</th>
+                    <th class='th2'>Country</th>
+                    <th class='th3'>New Confirmed</th>
+                    <th class='th4'>New Deaths</th>
+                    <th class='th5'>New Recovered</th>
+                    <th class='th6'>Total Confirmed</th>
+                    <th class='th7'>Total Deaths</th>
+                    <th class='th8'>Total Recovered</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in countries %}
+                <tr>
+                    <td class='td1'>{{forloop.counter}}</td>
+                    <td class='td2'>{{c.Country}}</td>
+                    <td class='td3'>{{c.NewConfirmed}}</td>
+                    <td class='td4'>{{c.NewDeaths}}</td>
+                    <td class='td5'>{{c.NewRecovered}}</td>
+                    <td class='td6'>{{c.TotalConfirmed}}</td>
+                    <td class='td7'>{{c.TotalDeaths}}</td>
+                    <td class='td8'>{{c.TotalRecovered}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
